@@ -1,0 +1,9 @@
+.vscode
+
+*.maFile
+*.json
+*.key
+*.jar
+
+steam
+steam-guard
