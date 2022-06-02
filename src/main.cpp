@@ -4,6 +4,7 @@
 #include <curl/curl.h>
 #include "SteamGuard.cpp"
 
+// TO DO: Accept .maFile as input
 int main(int argc, char **argv)
 {
     bool shouldAlignTime = false; // --align
@@ -14,15 +15,12 @@ int main(int argc, char **argv)
         std::cout << " --align - Get Steam's server time" << std::endl;
         return 1;
     }
-    else
+    else for (int i = 2; i < argc; i++)
     {
-        for (int i = 2; i < argc; i++)
-        {
-            char *arg = argv[i];
+        char *arg = argv[i];
 
-            if (!strcmp(arg, "--align"))
-                shouldAlignTime = true;
-        }
+        if (!strcmp(arg, "--align"))
+            shouldAlignTime = true;
     }
 
     const unsigned char *sharedSecretRaw = (unsigned char *)argv[1];
